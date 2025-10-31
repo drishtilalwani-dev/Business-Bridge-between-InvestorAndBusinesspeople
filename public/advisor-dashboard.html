@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Advisor Dashboard</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script type="module" src="../js/advisor.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <h2>Business Advisor Dashboard</h2>
+    <button id="logoutBtn">Logout</button>
+
+    <h3>Post Business Information</h3>
+    <form id="infoForm">
+      <input id="infoTitle" placeholder="Information Title" required />
+      <textarea id="infoDesc" placeholder="Information Details" required></textarea>
+      <button type="submit">Post Information</button>
+    </form>
+
+    <h3>View Queries</h3>
+    <ul id="queryList"></ul>
+
+    <div id="solutionSection" style="display:none;">
+      <h3>Post Solution</h3>
+      <form id="solutionForm">
+        <textarea id="solutionText" placeholder="Write your solution..." required></textarea>
+        <button type="submit">Post Solution</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

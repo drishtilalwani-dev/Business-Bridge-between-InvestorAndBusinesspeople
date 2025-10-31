@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Register</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script type="module" src="../js/auth.js"></script>
+</head>
+<body>
+    <div class="container">
+  <h2>Register</h2>
+  <form id="registerForm">
+    <input id ="name" placeholder ="Full Name" required />
+    <input id ="email" type ="email" placeholder ="Email" required />
+    <input id ="password" type ="password" placeholder ="Password" required />
+    <select id="role" required>
+      <option value ="">Select role</option>
+      <option value ="user">User</option>
+      <option value ="business">Business</option>
+      <option value ="investor">Investor</option>
+      <option value ="banker">Banker</option>
+      <option value ="advisor">Business Advisor</option>
+      
+    </select>
+    <button type="submit">Register</button>
+  </form>
+  <p id="msg"></p>
+  </div>
+</body>
+</html>

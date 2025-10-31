@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Investor Dashboard</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script type="module" src="../js/investor.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <h2>Investor Dashboard</h2>
+    <button id="logoutBtn">Logout</button>
+
+    <h3>Available Business Ideas</h3>
+    <ul id="ideasList"></ul>
+
+    <div id="proposalSection" style="display:none;">
+      <h3>Send Investment Proposal</h3>
+      <form id="proposalForm">
+        <input id="amount" placeholder="Investment Amount (₹)" required />
+        <textarea id="message" placeholder="Message to Business" required></textarea>
+        <button type="submit">Send Proposal</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

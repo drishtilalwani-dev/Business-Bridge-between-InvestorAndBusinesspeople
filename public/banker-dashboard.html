@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Banker Dashboard</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script type="module" src="../js/banker.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <h2>Banker Dashboard</h2>
+    <button id="logoutBtn">Logout</button>
+
+    <h3>Post Loan Details</h3>
+    <form id="loanForm">
+      <input id="loanName" placeholder="Loan Name" required />
+      <textarea id="loanDescription" placeholder="Loan Description" required></textarea>
+      <input id="interestRate" placeholder="Interest Rate (%)" required />
+      <button type="submit">Post Loan</button>
+    </form>
+
+    <h3>Your Loan Schemes</h3>
+    <ul id="loanList"></ul>
+  </div>
+</body>
+</html>
+
