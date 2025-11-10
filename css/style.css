@@ -1,12 +1,13 @@
-/*  Global Styles  */
+/*  Global Theme Variables */
 :root {
-  --primary: #1e88e5;
-  --primary-dark: #1565c0;
-  --secondary: #f4f6f8;
+  --primary: #1976d2;
+  --primary-dark: #0d47a1;
+  --secondary: #f7f9fc;
   --text: #333;
   --white: #fff;
-  --radius: 10px;
-  --shadow: 0 4px 12px rgba(0,0,0,0.1);
+  --radius: 12px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 * {
@@ -16,38 +17,148 @@
   font-family: "Poppins", sans-serif;
 }
 
+/*  Body Layout */
 body {
-  background: var(--secondary);
+  background: linear-gradient(to bottom right, #f7faff, #ffffff);
   color: var(--text);
   min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  padding: 30px;
+  padding-top: 100px; /* Space for navbar */
 }
 
-/*  Container  */
-.container {
+/*  Navigation Bar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: var(--white);
+  padding: 15px 40px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 420px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 30px 35px;
-  text-align: center;
+  z-index: 1000;
 }
 
-h2, h3 {
+nav h2 {
   color: var(--primary);
-  margin-bottom: 15px;
+  font-weight: 700;
 }
 
-p {
-  margin-top: 10px;
-  color: #666;
+.nav-links {
+  display: flex;
+  gap: 25px;
 }
 
-/*  Forms  */
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* Active Page Indicator */
+.nav-links a.active {
+  background: var(--primary-dark);
+  color: white;
+  font-weight: 600;
+}
+
+/* Hero Section (Homepage) */
+.homepage {
+  background: linear-gradient(to right, #e3f2fd, #f4f6f8);
+  min-height: 100vh;
+}
+
+.hero {
+  text-align: center;
+  margin-top: 140px;
+  animation: fadeInUp 0.8s ease;
+}
+
+.hero h1 {
+  font-size: 2.6rem;
+  color: var(--primary-dark);
+  margin-bottom: 10px;
+}
+
+.hero p {
+  color: #444;
+  margin: 10px 0 20px;
+  font-size: 1.1rem;
+}
+
+.hero button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.hero button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* Container & Dashboard */
+.container,
+.dashboard {
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 30px;
+  margin-top: 20px;
+  width: 90%;
+  max-width: 800px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.8s ease;
+}
+
+.container:hover,
+.dashboard:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.dashboard h2 {
+  text-align: center;
+  color: var(--primary-dark);
+  margin-bottom: 20px;
+}
+
+/* Dashboard Container (Main Section) */
+.dashboard-container {
+  background: var(--white);
+  padding: 30px;
+  margin: 60px auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  width: 90%;
+  max-width: 900px;
+  animation: fadeInUp 0.8s ease;
+}
+
+.dashboard-container h2 {
+  text-align: center;
+  color: var(--primary-dark);
+  margin-bottom: 20px;
+}
+
+/* Form Inputs */
 form {
   margin-top: 15px;
   display: flex;
@@ -55,7 +166,9 @@ form {
   gap: 12px;
 }
 
-input, textarea, select {
+input,
+textarea,
+select {
   padding: 10px 12px;
   border: 1px solid #ccc;
   border-radius: var(--radius);
@@ -63,10 +176,12 @@ input, textarea, select {
   transition: 0.3s;
 }
 
-input:focus, textarea:focus, select:focus {
+input:focus,
+textarea:focus,
+select:focus {
   border-color: var(--primary);
   outline: none;
-  box-shadow: 0 0 5px rgba(30,136,229,0.3);
+  box-shadow: 0 0 5px rgba(30, 136, 229, 0.3);
 }
 
 textarea {
@@ -74,12 +189,12 @@ textarea {
   min-height: 80px;
 }
 
-/*  Buttons  */
+/* Buttons */
 button {
   background: var(--primary);
   color: var(--white);
   border: none;
-  padding: 10px 14px;
+  padding: 10px 18px;
   border-radius: var(--radius);
   font-size: 16px;
   cursor: pointer;
@@ -92,76 +207,90 @@ button:hover {
   box-shadow: var(--shadow);
 }
 
-/*  Dashboard Layout  */
-.dashboard {
-  background: var(--white);
-  width: 100%;
-  max-width: 700px;
-  padding: 25px 30px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-.dashboard h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
+/* Lists */
 ul {
   list-style: none;
   margin-top: 15px;
 }
 
 ul li {
-  background: #f9fafc;
+  background: #ffffff;
   margin-bottom: 10px;
   padding: 12px 15px;
   border-radius: var(--radius);
   border-left: 5px solid var(--primary);
   transition: 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 ul li:hover {
   background: #eaf3ff;
   transform: translateX(3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
-/*  Header & Navigation  */
-header {
-  width: 100%;
-  text-align: center;
-  margin-bottom: 25px;
+/* Section Styling */
+section {
+  margin-top: 25px;
+  background: #f9fafc;
+  padding: 20px;
+  border-radius: 12px;
 }
 
-header h2 {
+section h3 {
   color: var(--primary);
-  font-size: 28px;
+  margin-bottom: 10px;
 }
 
-nav a {
-  color: var(--primary);
-  text-decoration: none;
-  margin: 0 10px;
-  font-weight: 500;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-/*  Messages  */
-#msg, #status {
+/* Messages & Status */
+#msg,
+#status {
   margin-top: 10px;
   color: var(--primary-dark);
   font-weight: 500;
 }
 
-/*Responsive */
-@media (max-width: 600px) {
-  body {
-    padding: 15px;
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-  .container, .dashboard {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .container,
+  .dashboard,
+  .dashboard-container {
+    width: 95%;
     padding: 20px;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  body {
+    padding-top: 130px;
   }
 }

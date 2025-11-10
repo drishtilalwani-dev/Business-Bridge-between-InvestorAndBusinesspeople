@@ -1,33 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Advisor Dashboard</title>
   <link rel="stylesheet" href="../css/style.css" />
-  <script type="module" src="../js/advisor.js"></script>
 </head>
 <body>
-  <div class="dashboard">
-    <h2>Business Advisor Dashboard</h2>
-    <button id="logoutBtn">Logout</button>
 
-    <h3>Post Business Information</h3>
-    <form id="infoForm">
-      <input id="infoTitle" placeholder="Information Title" required />
-      <textarea id="infoDesc" placeholder="Information Details" required></textarea>
-      <button type="submit">Post Information</button>
-    </form>
-
-    <h3>View Queries</h3>
-    <ul id="queryList"></ul>
-
-    <div id="solutionSection" style="display:none;">
-      <h3>Post Solution</h3>
-      <form id="solutionForm">
-        <textarea id="solutionText" placeholder="Write your solution..." required></textarea>
-        <button type="submit">Post Solution</button>
-      </form>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <h2 class="logo">Bridge</h2>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="user-dashboard.html">User</a>
+      <a href="investor-dashboard.html">Investors</a>
+      <a href="business-dashboard.html">Businesses</a>
+      <a href="banker-dashboard.html">Banker</a>
+      <a href="advisor-dashboard.html" class="active">Advisor</a>
+      <a href="login.html">Login</a>
     </div>
-  </div>
+  </nav>
+
+  <!-- Main content -->
+  <main class="dashboard-container">
+
+    <div class="dashboard">
+      <h2>Advisor Dashboard</h2>
+
+      <!-- Logout (JS hooks to #logoutBtn) -->
+      <div style="text-align:left; margin-bottom: 16px;">
+        <button id="logoutBtn">Logout</button>
+      </div>
+
+      <!-- Post information form (JS hooks to #infoForm, #infoTitle, #infoDesc) -->
+      <section>
+        <h3>Post Information</h3>
+        <form id="infoForm">
+          <input id="infoTitle" type="text" placeholder="Title" required />
+          <textarea id="infoDesc" placeholder="Description" required></textarea>
+          <button type="submit">Post Info</button>
+        </form>
+      </section>
+
+      <!-- Queries list (JS uses #queryList) -->
+      <section>
+        <h3>Queries</h3>
+        <ul id="queryList">
+          <li style="color:#777; padding:12px; border-radius:8px; background:#fafafa;">Loading queries...</li>
+        </ul>
+      </section>
+
+      <!-- Solution section (hidden by default, JS toggles #solutionSection) -->
+      <section id="solutionSection" style="display:none; margin-top:20px;">
+        <h3>Post Solution</h3>
+        <form id="solutionForm">
+          <textarea id="solutionText" placeholder="Write your solution..." required></textarea>
+          <button type="submit">Submit Solution</button>
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- app script -->
+  <script type="module" src="../js/advisor.js"></script>
 </body>
 </html>
